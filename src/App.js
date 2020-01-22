@@ -5,7 +5,7 @@ import Login from './formsManagement/formLogin'
 import FormReg from "./formsManagement/formReg";
 import Landing from "./components/landing/marketingPage";
 import Dashboard from './components/protectedRoutes/userDashboard'
-import "./App.css";
+
 
 function App() {
   return (

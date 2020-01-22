@@ -80,8 +80,6 @@ function Login(props) {
           <input
             type="checkbox"
             name="isChecked"
-            className="form-check-input"
-            id="exampleCheck3"
           />
         </div>
         <button type="submit" className="btn btn-primary">
@@ -96,15 +94,28 @@ export default Login;
 
 export const Formwrapper = styled.div`
   width: 200px;
-  margin: 50px auto;
+  margin: 200px auto;
+  display:flex;
+  
 
   @media (max-width: 500px) {
     width: 80%;
-    margin: 20px auto;
+    margin: 20% auto;
+    display:flex;
+    justify-content:space-around;
   }
 
   button {
     width: 50%;
+  }
+
+  h6, p {
+    text-align:center;
+  }
+
+  button {
+    margin-right:50px;
+    margin-left:50px;
   }
 
   p {
@@ -115,6 +126,6 @@ export const Formwrapper = styled.div`
 
   label {
     font-family: "Roboto Mono", monospace;
-    margin-right: 40px;
+    margin-right: 10px;
   }
 `;
