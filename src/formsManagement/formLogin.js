@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import {connect} from 'react-redux';
+import {inputUser} from '../stateManagemant/actionCreators';
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { validation } from "./validation/loginValidation";
@@ -10,7 +12,7 @@ const initial = {
   passwordError: ""
 };
 
-function Login(props) {
+function Login({inputUser}) {
   const [inputsValue, setInputsValue] = useState({
     username: "",
     password: "",
@@ -32,12 +34,12 @@ function Login(props) {
     e.preventDefault();
     if (isValid()) {
       const { username, password } = inputsValue;
-
+      inputUser(username, password)
       const newUser = JSON.stringify({ username, password });
       const existingUser = localStorage.getItem("credentials");
 
       if (newUser === existingUser) {
-        props.history.push("/dashboard");
+        console.log('You are logged succesfully')
       } else {
         console.log("Wrong pass" + existingUser);
       }
@@ -90,7 +92,13 @@ function Login(props) {
   );
 }
 
-export default Login;
+export default connect(
+  state => state,
+  {inputUser}
+)(Login);
+
+
+
 
 export const Formwrapper = styled.div`
   width: 200px;

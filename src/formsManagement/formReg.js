@@ -30,14 +30,12 @@ function FormReg(props) {
     });
   }
 
-const isVlaid = () => {
-  return validation(inputs, setInputs)
-}
+const isVlaid = _ => validation(inputs, setInputs)
+
 
   function onSubmit(e) {
     e.preventDefault();
-    let isValid = isVlaid();
-    if (isValid) {
+    if (isVlaid()) {
       const {username, email, password} = inputs
       console.log(username, email, password);
       props.history.push("/login");
